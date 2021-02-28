@@ -18,7 +18,7 @@ Suppose x is a randome variable which obeys the normal distribution. We want to 
 
 1. 1 / <x^2> = 1
 2. <x^4> / <x^2>^2 = 3
-3. <x^4> / <x^2>^2 = 5
+3. <x^4> / <x^4> / <x^2> = 5
 
 We draw N samples of x and calculate the aboves by the simple estimator and the jackknife estimator.
 
