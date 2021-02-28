@@ -51,7 +51,7 @@ $ ./a.out
 256 4.83132 4.97858
 ```
 
-You can see that the results by the simple estimator exhibits apparent 1/N dependence.
+You can see that the results by the simple estimator exhibit apparent 1/N dependence, while those by the jackknife estimator are improved.
 
 With gnuplot, you can visualize the above results.
 
