@@ -14,7 +14,7 @@ A sample of the [jackknife resampling method](https://en.wikipedia.org/wiki/Jack
 
 ## C++ Sample
 
-Suppose x is a randome variable which obeys normal distribution. We want to calculale the following three values.
+Suppose x is a randome variable which obeys the normal distribution. We want to estimate the following three quantities.
 
 1. 1 / <x^2> = 1
 2. <x^4> / <x^2>^2 = 3
@@ -50,6 +50,8 @@ $ ./a.out
 128 4.69751 4.95426
 256 4.83132 4.97858
 ```
+
+You can see that the results by the simple estimator exhibits apparent 1/N dependence.
 
 With gnuplot, you can visualize the above results.
 
