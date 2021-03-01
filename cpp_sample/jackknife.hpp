@@ -26,49 +26,49 @@ V transform_all(V &v, F f) {
 template <class F>
 double resample_a1(vd &r1, F f) {
   int n = r1.size();
-  double r_jn = 0.0;
+  double r_jk = 0.0;
   for (int i = 0; i < n; i++) {
     double r1_i = (sum(r1) - r1[i]) / (n - 1);
-    r_jn += f(r1_i);
+    r_jk += f(r1_i);
   }
-  r_jn /= n;
+  r_jk /= n;
   double r1_ave = average(r1);
   double r_all = f(r1_ave);
-  return n * r_all - (n - 1) * r_jn;
+  return n * r_all - (n - 1) * r_jk;
 }
 
 template <class F>
 double resample_a2(vd &r1, vd &r2, F f) {
   int n = r1.size();
-  double r_jn = 0.0;
+  double r_jk = 0.0;
   for (int i = 0; i < n; i++) {
     double r1_i = (sum(r1) - r1[i]) / (n - 1);
     double r2_i = (sum(r2) - r2[i]) / (n - 1);
-    r_jn += f(r1_i, r2_i);
+    r_jk += f(r1_i, r2_i);
   }
-  r_jn /= n;
+  r_jk /= n;
   double r1_ave = average(r1);
   double r2_ave = average(r2);
   double r_all = f(r1_ave, r2_ave);
-  return n * r_all - (n - 1) * r_jn;
+  return n * r_all - (n - 1) * r_jk;
 }
 
 template <class F>
 double resample_a3(vd &r1, vd &r2, vd &r3, F f) {
   int n = r1.size();
-  double r_jn = 0.0;
+  double r_jk = 0.0;
   for (int i = 0; i < n; i++) {
     double r1_i = (sum(r1) - r1[i]) / (n - 1);
     double r2_i = (sum(r2) - r2[i]) / (n - 1);
     double r3_i = (sum(r3) - r3[i]) / (n - 1);
-    r_jn += f(r1_i, r2_i, r3_i);
+    r_jk += f(r1_i, r2_i, r3_i);
   }
-  r_jn /= n;
+  r_jk /= n;
   double r1_ave = average(r1);
   double r2_ave = average(r2);
   double r3_ave = average(r3);
   double r_all = f(r1_ave, r2_ave, r3_ave);
-  return n * r_all - (n - 1) * r_jn;
+  return n * r_all - (n - 1) * r_jk;
 }
 
 template <class F>

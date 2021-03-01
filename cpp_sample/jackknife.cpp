@@ -73,22 +73,22 @@ double jackknife_test3(std::vector<double> &r) {
 }
 
 template <class F>
-void test(F f_s, F f_jn, const std::string filename) {
+void test(F f_s, F f_jk, const std::string filename) {
   std::ofstream ofs(filename);
   std::vector<int> size = {16, 32, 64, 128, 256};
   size_t n_trial = 65536;
   for (auto n : size) {
-    std::vector<double> v_s, v_jn;
+    std::vector<double> v_s, v_jk;
     for (size_t i = 0; i < n_trial; i++) {
       std::vector<double> r(n);
       r = jackknife::transform_all(r, [](double) { return dist(engine); });
       v_s.push_back(f_s(r));
-      v_jn.push_back(f_jn(r));
+      v_jk.push_back(f_jk(r));
     }
     double u_s = jackknife::average(v_s);
-    double u_jn = jackknife::average(v_jn);
-    ofs << n << " " << u_s << " " << u_jn << std::endl;
-    std::cout << n << " " << u_s << " " << u_jn << std::endl;
+    double u_jk = jackknife::average(v_jk);
+    ofs << n << " " << u_s << " " << u_jk << std::endl;
+    std::cout << n << " " << u_s << " " << u_jk << std::endl;
   }
 }
 
